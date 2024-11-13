@@ -1,19 +1,3 @@
-// Scroll-triggered fade-in effect
-document.addEventListener("DOMContentLoaded", () => {
-    const fadeElements = document.querySelectorAll('.fade-in');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = 1;
-                entry.target.style.transform = "translateY(0)";
-                observer.unobserve(entry.target);
-            }
-        });
-    });
-
-    fadeElements.forEach(el => observer.observe(el));
-});
 
 // Cache and request limiter
 const apiCache = new Map();
@@ -21,6 +5,14 @@ let requestCount = 0;
 const requestLimit = 10;
 const timeWindow = 60000; // 1 minute
 let timeWindowStart = Date.now();
+
+// Toggle the flip effect individually for each card
+document.querySelectorAll('.service-item').forEach(item => {
+    item.addEventListener('click', () => {
+        item.classList.toggle('clicked'); // Toggle 'clicked' class on each individual item
+    });
+});
+
 
 function makeApiRequest(endpoint, options) {
     const now = Date.now();
@@ -45,3 +37,4 @@ function makeApiRequest(endpoint, options) {
             return data;
         });
 }
+

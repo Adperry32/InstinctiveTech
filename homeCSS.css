@@ -169,6 +169,136 @@ nav a:hover {
     gap: 0.5em;
 }
 
+/* Services section layout */
+.services-section {
+    padding: 4em 2em;
+    background-color: #FAFAFA;
+    color: #333;
+}
+
+.services-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2em;
+    align-items: flex-start;
+}
+
+.services-title {
+    max-inline-size: 40%; /* Left column with title and description */
+}
+
+.services-title h2 {
+    font-size: 2em;
+    color: #FD6602;
+    margin-block-end: 0.5em;
+}
+
+.services-title p {
+    font-size: 1.1em;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Grid layout for services (right side) */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Smaller grid for compact display */
+    gap: 1.5em;
+    inline-size: 50%; /* Right column for the gallery */
+}
+
+/* Service item styling */
+.service-item {
+    perspective: 1000px;
+    inline-size: 100%; /* Adjust to smaller size */
+    block-size: 200px; /* Smaller height for compact display */
+}
+
+.card {
+    position: relative;
+    inline-size: 100%;
+    block-size: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+/* Flip the card on click */
+.service-item.clicked .card {
+    transform: rotateY(180deg);
+}
+
+/* Card front styling */
+.card-front, .card-back {
+    position: absolute;
+    inline-size: 100%;
+    block-size: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Front side with image */
+.card-front img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+/* Overlay with title */
+.card-front .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card-front:hover img {
+    transform: scale(1.1);
+}
+
+.card-front:hover .overlay {
+    opacity: 1;
+}
+
+/* Back side styling */
+.card-back {
+    background: #f0f0f0;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    padding: 1em;
+    font-size: 1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .services-content {
+        flex-direction: column;
+        align-items: center;
+    }
+    .services-title, .services-grid {
+        max-inline-size: 100%;
+        text-align: center;
+    }
+    .services-grid {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+    }
+}
+
+
+
+
 /* Contact form styling */
 #contact {
     padding-block-start: 20px;
@@ -262,7 +392,18 @@ footer {
 .social-media-icons a img:hover {
     transform: scale(1.2);
 }
+/* Responsive adjustments for grid */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
 
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
 @media (max-width: 768px) {
     nav {
         flex-direction: column;
