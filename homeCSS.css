@@ -1,0 +1,345 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FAFAFA;
+    color: #333;
+    padding-block-start: 100px; /* Prevents content from hiding under the fixed header */
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FAFAFA;
+    padding: 1.7em 2em;
+    color: #fff;
+    position: fixed;
+    inset-block-start: 0;
+    inline-size: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 10;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+    font-size: 1.2em;
+}
+
+nav a {
+    color: #fff;
+    background-color: #C43C79;
+    padding: 0.5em 1.2em;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #fff;
+    color: #FD6602;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    inline-size: 60px;
+    animation: flip 5s linear infinite;
+}
+
+/* Styling for the banner section */
+.banner {
+    background-image: url('images/banner.png');
+    background-size: cover;
+    background-position: center 20%;
+    block-size: 600px;
+    inline-size: 100%;
+    max-block-size: 70vh;
+    padding: 4em 2em;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.banner h1 {
+    font-size: 2.5em;
+    margin-block-end: 0.5em;
+}
+
+.banner p {
+    font-size: 1.2em;
+    margin-block-end: 1.5em;
+    max-inline-size: 700px;
+}
+
+.banner button {
+    background-color: #FD6602;
+    color: #fff;
+    border: none;
+    margin-block-start: 500px;
+    margin-inline-start: 60px;
+    padding: 0.7em 1.5em;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+.banner button:hover {
+    background-color: #fff;
+    color: #FD6602;
+    border: 1px solid #FD6602;
+}
+
+/* Styling for the key areas section */
+.info-section {
+    display: flex;
+    justify-content: space-around;
+    background-color: #6B5B95;
+    color: #fff;
+    padding: 6em 2em;
+    gap: 1.5em;
+}
+
+/* Title area on the left */
+.info-title {
+    flex: 1;
+    max-inline-size: 30%;
+}
+
+.info-title h2 {
+    font-size: 2em;
+    color: #FD6602;
+    margin-block-end: 0.5em;
+}
+
+/* Points of interest on the right, with grid layout */
+.info-points {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+}
+
+/* Icon Styling with Sequential Bounce Pattern */
+.icon {
+    font-size: 2em;
+    color: #FD6602;
+    animation: bounce-sequential 8s linear infinite; /* Long animation duration for staggered timing */
+}
+
+/* Delays to Control the Sequential Bounce */
+.info-item:nth-child(1) .icon {
+    animation-delay: 0s; /* Icon 1 starts immediately */
+}
+
+.info-item:nth-child(2) .icon {
+    animation-delay: 2s; /* Icon 2 starts after 2 seconds */
+}
+
+.info-item:nth-child(3) .icon {
+    animation-delay: 4s; /* Icon 3 starts after 4 seconds */
+}
+
+/* Center the icon above each text item */
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5em;
+}
+
+/* Contact form styling */
+#contact {
+    padding-block-start: 20px;
+    color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    inline-size: 500px; 
+    block-size: 425px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.1em;
+}
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1em;
+    max-inline-size: 42px;
+    margin: -10px auto;
+}
+
+.form-title {
+    font-size: 1.2em;
+}
+
+#contact input, #contact textarea {
+    padding: 1em;
+    border: none;
+    border-radius: 25px;
+    inline-size: 400px;
+    align-items: center;
+}
+
+.form-msg textarea {
+    block-size: 155px;
+}
+
+#contact button {
+    padding: 0.7em;
+    background: #6B5B95;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    inline-size: 65px;
+    cursor: pointer;
+    transition: background 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+#contact button:hover {
+    background: #7F00FF;
+}
+
+/* Footer styling */
+footer {
+    background: linear-gradient(120deg, #6B5B95, #FEB236);
+    color: #fff;
+    padding: 2em;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-content {
+    flex: 1;
+    max-inline-size: 45%;
+    text-align: center;
+    margin-inline-end: 200px;
+    margin-inline-start: 100px;
+    padding-block-start: 65px;
+    font-size: 1.1em;
+}
+
+.footer-content p {
+    margin-block-end: 1em;
+}
+
+.social-media-icons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+}
+
+.social-media-icons a img {
+    inline-size: 45px;
+    block-size: 45px;
+    transition: transform 0.3s;
+}
+
+.social-media-icons a img:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Bounce animation keyframes */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Sequential Bounce Animation */
+@keyframes bounce-sequential {
+    0%, 100% { transform: translateY(0); }
+    10%, 30% { transform: translateY(-10px); } /* Adjust height of the bounce */
+}
+
+
+/* Keyframe for flip animation */
+@keyframes flip {
+    0% { transform: rotateY(0); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in class for scroll-triggered animations */
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Responsive adjustments for tablets */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .info-points {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
+    }
+    .info-title {
+        max-inline-size: 100%;
+        margin-block-end: 1.5em;
+    }
+}
+
+/* Responsive adjustments for phones */
+@media (max-width: 480px) {
+    .banner {
+        block-size: 300px; /* Adjust height for phones */
+    }
+    .banner h1 {
+        font-size: 1.5em;
+    }
+    .banner p {
+        font-size: 0.9em;
+    }
+    .banner button {
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+    }
+    nav {
+        font-size: 0.9em;
+    }
+}
