@@ -1,4 +1,3 @@
-// Scroll-triggered fade-in effect
 document.addEventListener("DOMContentLoaded", () => {
     const fadeElements = document.querySelectorAll('.fade-in');
 
@@ -13,4 +12,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     fadeElements.forEach(el => observer.observe(el));
+
+    // Smooth scroll only if on `servicesPage.html`
+    if (window.location.pathname.includes("servicesPage.html")) {
+        const links = document.querySelectorAll('.dropdown-content a');
+        links.forEach(link => {
+            link.addEventListener('click', event => {
+                event.preventDefault();
+                const targetId = link.getAttribute("href").split("#")[1];
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: "smooth" });
+                    history.pushState(null, null, `#${targetId}`);
+                }
+            });
+        });
+    }
 });
